@@ -4,4 +4,7 @@ import { nodePolyfills } from "vite-plugin-node-polyfills";
 
 export default defineConfig({
   plugins: [sveltekit(), nodePolyfills()],
+  ssr: {
+    noExternal: ["three", "troika-three-text"],
+  },
 });

@@ -6,7 +6,7 @@
   <nav class="fixed flex h-16 w-full justify-between p-3 italic tracking-wide dark:bg-black">
     <ul class="flex space-x-4">
       <li class="ml-2 mr-4 flex items-center">
-        <a href="/about"
+        <a href="/"
           ><img src="/img/sgmnt-black-240.png" alt="sgmnt logo" class="h-6 object-cover" /></a
         >
       </li>

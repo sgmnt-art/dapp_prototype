@@ -1,5 +1,4 @@
 <script lang="ts">
-  import "$lib/assets/styles/app.css";
   import Navbar from "$lib/components/Navbar.svelte";
   import { taiko } from "$lib/domain/chain";
   import { ethereumClient, wagmiClient, web3Modal, providers } from "$lib/stores";
@@ -54,7 +53,7 @@
 
 <div class="flex h-full flex-col">
   <Navbar />
-  <div class="container mx-auto flex-grow">
+  <div class="container mx-auto flex-grow px-3">
     <slot />
   </div>
 </div>
