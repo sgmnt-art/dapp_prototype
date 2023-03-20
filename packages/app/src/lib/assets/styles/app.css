@@ -7,6 +7,10 @@
   --w3m-secondary-button-border-radius: 3px !important;
 }
 
+canvas {
+  border-radius: 4px 4px 0 0;
+}
+
 h1 {
   @apply mb-3 text-xl font-medium;
 }
@@ -40,4 +44,35 @@ h1 {
   font-weight: 900;
   src: url("/fonts/roboto-v30-latin-900.woff2") format("woff2"),
     /* Chrome 36+, Opera 23+, Firefox 39+ */ url("/fonts/roboto-v30-latin-900.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* arimo-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Arimo";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/arimo-v27-latin-regular.woff2") format("woff2"),
+    /* Chrome 36+, Opera 23+, Firefox 39+ */ url("/fonts/arimo-v27-latin-regular.woff")
+      format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* arimo-500 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Arimo";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/arimo-v27-latin-500.woff2") format("woff2"),
+    /* Chrome 36+, Opera 23+, Firefox 39+ */ url("/fonts/arimo-v27-latin-500.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* arimo-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Arimo";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/arimo-v27-latin-700.woff2") format("woff2"),
+    /* Chrome 36+, Opera 23+, Firefox 39+ */ url("/fonts/arimo-v27-latin-700.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }

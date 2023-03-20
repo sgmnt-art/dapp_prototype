@@ -42,14 +42,14 @@
 </script>
 
 <T.PerspectiveCamera makeDefault position={[10, 10, 10]} fov={24}>
-  <OrbitControls maxPolarAngle={degToRad(80)} enableZoom={false} target={{ y: 0.5 }} />
+  <OrbitControls enablePan={false} enableRotate={false} enableZoom={false} target={{ y: 0.5 }} />
 </T.PerspectiveCamera>
 
 <T.DirectionalLight castShadow position={[3, 10, 10]} />
 <T.DirectionalLight position={[-3, 10, -10]} intensity={0.2} />
 <T.AmbientLight intensity={0.2} />
 
-<T.Mesh let:ref {material} frustumCulled={false}>
+<T.Mesh let:ref {material}>
   <T.SphereGeometry args={[1, 64, 64]} />
   <InteractiveObject
     object={ref}
