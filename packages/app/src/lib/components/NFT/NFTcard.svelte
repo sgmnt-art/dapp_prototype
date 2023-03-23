@@ -32,7 +32,8 @@
 <svelte:window bind:scrollY />
 
 <div bind:this={card} class="card" on:mousemove={handleHover} on:mouseleave={resetStyles}>
-  <div class="h-[300px] w-[300px]">
+  <!-- <div bind:this={card} class="card"> -->
+  <div class="relative h-[300px] w-[300px]" style="z-index: 20">
     <button
       class="absolute top-[260px] left-[15px]"
       on:click={() => {
@@ -75,8 +76,7 @@
   }
 
   .card {
-    @apply rounded shadow;
-    background-color: white;
+    @apply rounded bg-white shadow dark:bg-black;
     background-size: cover;
     width: 300px;
     height: fit-content;

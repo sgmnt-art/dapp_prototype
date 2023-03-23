@@ -6,7 +6,7 @@
   <div
     class="fixed mr-20 flex h-[calc(100vh-64px)] w-52 shrink-0 flex-col justify-between pb-6 pt-20"
   >
-    <div class="border-l-2 border-solid border-neutral-300 px-2">
+    <div class="border-l-2 border-solid border-neutral-300 px-2 dark:border-neutral-600">
       <h2 class="mb-2 text-[11pt] font-medium">SEGMENT COLLECTIONS</h2>
       <div class="flex flex-col">
         <a
@@ -24,7 +24,7 @@
 
     {#if $page.url.pathname.includes("punk")}
       <div
-        class="flex flex-col border-l-2 border-solid border-neutral-300 p-2 px-2 text-[8pt] text-neutral-500"
+        class="flex flex-col border-l-2 border-solid border-neutral-300 p-2 px-2 text-[8pt] text-neutral-500 dark:border-neutral-600 dark:text-neutral-400"
       >
         <p>LARVA LABS</p>
         <p>CRYPTO PUNK #4486</p>

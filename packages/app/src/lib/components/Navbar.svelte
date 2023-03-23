@@ -1,16 +1,44 @@
 <script lang="ts">
+  import { browser } from "$app/environment";
   import { page } from "$app/stores";
+  import { onMount } from "svelte";
+
+  let darkModePreference: MediaQueryList;
+
+  const darkPreferred = async () => {
+    if (browser) {
+      const darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
+      if (darkModePreference.matches) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  };
+
+  let prefersDark: Promise<boolean>;
+  onMount(() => {
+    prefersDark = darkPreferred();
+  });
 </script>
 
 <header>
   <nav
-    class="fixed z-50 flex h-16 w-full justify-between bg-neutral-100 bg-opacity-50 p-3 italic tracking-wide backdrop-blur-3xl dark:bg-black"
+    class="fixed z-50 flex h-16 w-full justify-between bg-neutral-100 bg-opacity-50 p-3 italic tracking-wide backdrop-blur-3xl dark:bg-neutral-900 dark:bg-opacity-50"
   >
     <ul class="flex space-x-4">
       <li class="ml-2 mr-4 flex items-center">
-        <a href="/"
-          ><img src="/img/sgmnt-black-240.png" alt="sgmnt logo" class="h-6 object-cover" /></a
-        >
+        <a href="/">
+          {#await prefersDark then dark}
+            {#if dark}
+              <img src="/img/sgmnt-white-240.png" alt="sgmnt logo" class="h-6 object-cover" />
+            {:else}
+              <img src="/img/sgmnt-black-240.png" alt="sgmnt logo" class="h-6 object-cover" />
+            {/if}
+          {/await}
+        </a>
       </li>
       <li class:font-bold={$page.url.pathname.includes("gallery")} class="text- flex items-center">
         <a href="/gallery">Gallery</a>
