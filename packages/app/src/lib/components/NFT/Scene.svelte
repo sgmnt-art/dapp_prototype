@@ -23,7 +23,7 @@
 </script>
 
 <T.PerspectiveCamera makeDefault position={[0, 0, 3]} fov={50}>
-  <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} target={{ z: 0 }} />
+  <OrbitControls enableZoom={false} enablePan={false} enableRotate={false} target={{ z: 0 }} />
 </T.PerspectiveCamera>
 
 <T.AmbientLight intensity={1} />
