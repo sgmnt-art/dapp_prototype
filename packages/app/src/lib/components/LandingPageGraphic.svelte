@@ -1,5 +1,6 @@
 <script>
-  import { Canvas, InteractiveObject, OrbitControls, T, useFrame } from "@threlte/core";
+  import { Canvas, T, useFrame } from "@threlte/core";
+  import { interactivity, OrbitControls } from "@threlte/extras";
   import { degToRad } from "three/src/math/MathUtils";
   import { Color } from "three";
   import { spring } from "svelte/motion";
@@ -39,26 +40,26 @@
     // @ts-expect-error - this property is present when running, not sure why ts doesn't pick up on it.
     displace.offset[0] += 0.005 * (1 + ($scale - 1) * 5);
   });
+
+  interactivity();
 </script>
 
 <T.PerspectiveCamera makeDefault position={[10, 10, 10]} fov={24}>
-  <OrbitControls enablePan={false} enableRotate={false} enableZoom={false} target={{ y: 0.5 }} />
+  <OrbitControls enablePan={false} enableRotate={false} enableZoom={false} target={[0, 0, 0]} />
 </T.PerspectiveCamera>
 
 <T.DirectionalLight castShadow position={[3, 10, 10]} />
 <T.DirectionalLight position={[-3, 10, -10]} intensity={0.2} />
 <T.AmbientLight intensity={0.2} />
 
-<T.Mesh let:ref {material}>
+<T.Mesh
+  {material}
+  on:pointerenter={() => {
+    $scale = 2;
+  }}
+  on:pointerleave={() => {
+    $scale = 1.0;
+  }}
+>
   <T.SphereGeometry args={[1, 64, 64]} />
-  <InteractiveObject
-    object={ref}
-    interactive
-    on:pointerenter={() => {
-      $scale = 2;
-    }}
-    on:pointerleave={() => {
-      $scale = 1.0;
-    }}
-  />
 </T.Mesh>

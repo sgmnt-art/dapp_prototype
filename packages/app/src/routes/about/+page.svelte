@@ -1,24 +1,99 @@
 <script lang="ts">
-  import { Canvas, OrbitControls, T, useTexture } from "@threlte/core";
-  import { useGltf } from "@threlte/extras";
+  import Seg from "$lib/components/landingpage/Seg.svelte";
+  import Typewriter from "svelte-typewriter";
+  import Logo from "$lib/assets/Logo.svelte";
+  import { onMount } from "svelte";
+  import { fade, slide } from "svelte/transition";
 
-  const { gltf } = useGltf("/models/mac-draco.glb");
-  // console.log(gltf);
+  let showButton = false;
+  let showForm = false;
+  let email: string;
+
+  onMount(() => {
+    setTimeout(() => {
+      showButton = true;
+    }, 4000);
+  });
+
+  const ntfy = () => {
+    fetch("http://ntfy.sh/kl23falsd-sgmnt-notify", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: email,
+    });
+    showForm = false;
+    email = "";
+  };
 </script>
 
-<div>
-  <Canvas>
-    <T.PerspectiveCamera makeDefault position={[0, 0, 3]} fov={50}>
-      <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} target={{ z: 0 }} />
-    </T.PerspectiveCamera>
-
-    <T.AmbientLight intensity={1} />
-  </Canvas>
+<div class="absolute m-6 w-20">
+  <Logo />
 </div>
 
+<div class="grid h-full sm:place-items-center">
+  <div class="mx-auto flex flex-col flex-col-reverse justify-end sm:flex-row">
+    <div class=" m-6 -mt-1 sm:mt-20">
+      <div class="h-32 w-64 font-bold italic">
+        <Typewriter mode="cascade" delay={0}>
+          <p class="sm:mt-10">Introducing the sNFT...</p>
+        </Typewriter>
+        <Typewriter delay={1500}>
+          <p class="mt-3">Segmented NFTs provide true partial ownership of bluechip NFTs</p>
+        </Typewriter>
+      </div>
+      {#if showButton}
+        <button
+          on:click={() => {
+            showForm = true;
+          }}
+          transition:fade={{ duration: 2000 }}
+          class="w-full rounded-sm border border-black p-1 px-3 transition-all duration-500 hover:bg-black hover:text-white dark:border-white dark:hover:bg-white dark:hover:text-black"
+        >
+          Notify me at launch
+        </button>
+      {/if}
+    </div>
+    <div class="relative mt-10 h-[400px] w-[400px] p-6 sm:mt-0">
+      <img src="/img/ape.png" alt="bored ape" class="opacity-70" />
+      <div class="absolute top-[15%] right-[15%] z-10">
+        <Seg />
+      </div>
+    </div>
+  </div>
+</div>
+
+{#if showForm}
+  <div transition:slide class="absolute bottom-0 z-50 w-screen bg-neutral-200 p-6 dark:bg-black">
+    <form>
+      <input
+        bind:value={email}
+        placeholder="email"
+        type="text"
+        id="email"
+        name="email"
+        required
+        class="my-3 w-full"
+      />
+      <button
+        type="submit"
+        on:click={ntfy}
+        class="w-full rounded-sm border border-black p-1 px-3 transition-all duration-500 hover:bg-black hover:text-white dark:border-white dark:hover:bg-white dark:hover:text-black"
+        >Let me know</button
+      >
+    </form>
+  </div>
+{/if}
+
 <style>
-  div {
-    height: 100%;
-    width: 100%;
+  input {
+    outline: none;
+    border: none;
+    background-image: none;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
   }
 </style>

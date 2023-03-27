@@ -49,7 +49,7 @@
         /></svg
       >
     </button>
-    <Canvas>
+    <Canvas toneMapping={1} colorSpace={"srgb-linear"}>
       <Scene {zoomedIn} {zoomLevel} />
     </Canvas>
   </div>
