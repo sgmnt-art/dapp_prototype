@@ -16,7 +16,7 @@
   });
 
   const ntfy = () => {
-    fetch("http://ntfy.sh/kl23falsd-sgmnt-notify", {
+    fetch("https://ntfy.sh/kl23falsd-sgmnt-notify", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
