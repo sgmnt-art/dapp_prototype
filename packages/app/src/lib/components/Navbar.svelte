@@ -1,27 +1,8 @@
 <script lang="ts">
   import { browser } from "$app/environment";
   import { page } from "$app/stores";
+  import Logo from "$lib/assets/Logo.svelte";
   import { onMount } from "svelte";
-
-  let darkModePreference: MediaQueryList;
-
-  const darkPreferred = async () => {
-    if (browser) {
-      const darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
-      if (darkModePreference.matches) {
-        return true;
-      } else {
-        return false;
-      }
-    } else {
-      return false;
-    }
-  };
-
-  let prefersDark: Promise<boolean>;
-  onMount(() => {
-    prefersDark = darkPreferred();
-  });
 </script>
 
 <header>
@@ -31,13 +12,9 @@
     <ul class="flex space-x-4">
       <li class="ml-2 mr-4 flex items-center">
         <a href="/">
-          {#await prefersDark then dark}
-            {#if dark}
-              <img src="/img/sgmnt-white-240.png" alt="sgmnt logo" class="h-6 object-cover" />
-            {:else}
-              <img src="/img/sgmnt-black-240.png" alt="sgmnt logo" class="h-6 object-cover" />
-            {/if}
-          {/await}
+          <div class="w-20">
+            <Logo />
+          </div>
         </a>
       </li>
       <li class:font-bold={$page.url.pathname.includes("gallery")} class="text- flex items-center">
