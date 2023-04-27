@@ -1,5 +1,5 @@
 <script lang="ts">
-  import NFTcard from "$lib/components/NFT/NFTcard.svelte";
+  import NFTcard from "$lib/components/NFT/NFTcardApe.svelte";
 </script>
 
 <div class="mt-20 grid h-fit w-full grid-cols-[repeat(auto-fit,300px)] justify-center gap-4">

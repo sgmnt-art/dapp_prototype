@@ -10,14 +10,14 @@
       <h2 class="mb-2 text-[11pt] font-medium">SEGMENT COLLECTIONS</h2>
       <div class="flex flex-col">
         <a
-          class:font-bold={$page.url.pathname.includes("/gallery/crypto-punk-4486")}
+          class:font-bold={$page.url.pathname.includes("/marketplace/crypto-punk-4486")}
           class="hover:italic"
-          href="/gallery/crypto-punk-4486">CRYPTO PUNK #4486</a
+          href="/marketplace/crypto-punk-4486">CRYPTO PUNK #4486</a
         >
         <a
-          class:font-bold={$page.url.pathname.includes("/gallery/bored-ape-387")}
+          class:font-bold={$page.url.pathname.includes("/marketplace/bored-ape-387")}
           class="hover:italic"
-          href="/gallery/#">BORED APE #387</a
+          href="/marketplace/bored-ape-387">BORED APE #387</a
         >
       </div>
     </div>
@@ -30,6 +30,16 @@
         <p>CRYPTO PUNK #4486</p>
         <p>RESOLUTION: 32x32</p>
         <img src="/img/nft-placeholders/punk.png" alt="original nft" class="mt-2 w-full" />
+      </div>
+    {/if}
+    {#if $page.url.pathname.includes("ape")}
+      <div
+        class="flex flex-col border-l-2 border-solid border-neutral-300 p-2 px-2 text-[8pt] text-neutral-500 dark:border-neutral-600 dark:text-neutral-400"
+      >
+        <p>YUGA LABS</p>
+        <p>BORED APE #387</p>
+        <p>RESOLUTION 516x516</p>
+        <img src="/img/nft-placeholders/ape.png" alt="original nft" class="mt-2 w-full" />
       </div>
     {/if}
   </div>

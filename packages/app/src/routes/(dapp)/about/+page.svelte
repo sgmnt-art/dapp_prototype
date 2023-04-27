@@ -28,10 +28,6 @@
   };
 </script>
 
-<div class="absolute m-6 w-20">
-  <Logo />
-</div>
-
 <div class="grid h-full sm:place-items-center">
   <div class="mx-auto flex flex-col flex-col-reverse justify-end sm:flex-row">
     <div class=" m-6 -mt-1 sm:mt-20">
@@ -65,7 +61,7 @@
 </div>
 
 {#if showForm}
-  <div transition:slide class="absolute bottom-0 z-50 w-screen bg-neutral-200 p-6 dark:bg-black">
+  <div transition:slide class="fixed bottom-0 left-[calc(100vw-50vw-200px)] z-50 w-[400px] mx-auto bg-neutral-200 p-6 dark:bg-black">
     <form>
       <input
         bind:value={email}
@@ -83,6 +79,7 @@
         >Let me know</button
       >
     </form>
+    <button class="absolute top-0 right-0 p-3 px-6" on:click={() => {showForm = false}}>X</button>
   </div>
 {/if}
 

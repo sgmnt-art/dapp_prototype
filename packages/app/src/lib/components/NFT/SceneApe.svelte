@@ -6,7 +6,7 @@
 
   export let zoomedIn: boolean;
   export let zoomLevel: [number, number, number] = [0, 0, 9];
-  const texture = useTexture("/img/nft-placeholders/punk.png");
+  const texture = useTexture("/img/nft-placeholders/ape.png");
   const cameraPos = spring(zoomLevel, { damping: 1, stiffness: 0.1 });
 
   $: {
