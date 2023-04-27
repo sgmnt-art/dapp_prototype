@@ -61,7 +61,10 @@
 </div>
 
 {#if showForm}
-  <div transition:slide class="fixed bottom-0 left-[calc(100vw-50vw-200px)] z-50 w-[400px] mx-auto bg-neutral-200 p-6 dark:bg-black">
+  <div
+    transition:slide
+    class="fixed bottom-0 left-[calc(100vw-50vw-200px)] z-50 mx-auto w-[400px] bg-neutral-200 p-6 dark:bg-black"
+  >
     <form>
       <input
         bind:value={email}
@@ -79,7 +82,12 @@
         >Let me know</button
       >
     </form>
-    <button class="absolute top-0 right-0 p-3 px-6" on:click={() => {showForm = false}}>X</button>
+    <button
+      class="absolute top-0 right-0 p-3 px-6"
+      on:click={() => {
+        showForm = false;
+      }}>X</button
+    >
   </div>
 {/if}
 

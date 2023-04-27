@@ -19,7 +19,10 @@
       <li class:font-bold={$page.url.pathname.includes("mint")} class="text- flex items-center">
         <a href="/mint">Mint</a>
       </li>
-      <li class:font-bold={$page.url.pathname.includes("marketplace")} class="text- flex items-center">
+      <li
+        class:font-bold={$page.url.pathname.includes("marketplace")}
+        class="text- flex items-center"
+      >
         <a href="/marketplace">Marketplace</a>
       </li>
       <li class:font-bold={$page.url.pathname.includes("segments")} class="flex items-center">
