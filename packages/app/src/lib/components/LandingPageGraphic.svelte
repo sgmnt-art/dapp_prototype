@@ -17,12 +17,12 @@
   });
 
   const material = new LayerMaterial({
-    color: "#90b5ff",
+    color: "#95c5ff",
     lighting: "physical",
     layers: [
       displace,
       new Fresnel({
-        color: new Color("#fc0000"),
+        color: new Color("#ff2000"),
         alpha: 1,
         power: 0.75,
         intensity: 1,
@@ -34,7 +34,7 @@
   });
 
   let hovering = false;
-  const scale = spring(1, { stiffness: 0.1 });
+  const scale = spring(1.6, { stiffness: 0.1 });
 
   useFrame(() => {
     // @ts-expect-error - this property is present when running, not sure why ts doesn't pick up on it.
@@ -55,10 +55,10 @@
 <T.Mesh
   {material}
   on:pointerenter={() => {
-    $scale = 2;
+    $scale = 2.5;
   }}
   on:pointerleave={() => {
-    $scale = 1.0;
+    $scale = 1.6;
   }}
 >
   <T.SphereGeometry args={[1, 64, 64]} />
