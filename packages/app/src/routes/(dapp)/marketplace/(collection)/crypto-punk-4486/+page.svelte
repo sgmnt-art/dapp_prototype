@@ -54,9 +54,10 @@
         </div>
         <div class="flex flex-col">
           <h1 class="font-bold">0.32 ETH</h1>
-          <button
+          <a
+            href="/my-segments"
             class="mt-3 rounded border border-black p-3 text-center transition hover:bg-black hover:text-neutral-100"
-            >Purchase</button
+            >Purchase</a
           >
         </div>
       </div>
